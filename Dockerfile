@@ -17,6 +17,7 @@ ADD https://raw.githubusercontent.com/elasticsearch/kibana/v3.1.1/sample/nginx.c
 RUN sed -i -e 's%root.*%root /opt/kibana;%' /etc/nginx/sites-available/default && \
     echo "\ndaemon off;" >> /etc/nginx/nginx.conf && \
     sed -i -e 's%"http://"+window.location.hostname+":9200"%""%' /opt/kibana/config.js
+ADD https://gist.githubusercontent.com/breyten/9579c21341c7ff2fcd42/raw/939c173aa63922c20b824c06e921c8cbb35626b5/elasticsearch.yml /opt/elasticsearch/config/elasticsearch.yml
 
 # Expose communication ports
 EXPOSE 80
