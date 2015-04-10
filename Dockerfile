@@ -7,9 +7,9 @@ RUN apt-get update && \
     rm -rf /tmp/* /var/tmp/* /var/lib/apt/lists/*
 
 # Install Kibana content
-RUN curl -Ls https://download.elasticsearch.org/kibana/kibana/kibana-3.1.1.tar.gz | \
+RUN curl -Ls https://download.elastic.co/kibana/kibana/kibana-4.0.2-linux-x86.tar.gz | \
     tar xz -C /opt && \
-    ln -s kibana-3.1.1 /opt/kibana
+    ln -s kibana-4.0.2 /opt/kibana
 
 # Upload Kibana configuration and startup files
 ADD service /etc/service
@@ -21,3 +21,4 @@ ADD https://gist.githubusercontent.com/breyten/9579c21341c7ff2fcd42/raw/939c173a
 
 # Expose communication ports
 EXPOSE 80
+EXPOSE 9200
